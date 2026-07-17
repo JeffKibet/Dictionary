@@ -121,3 +121,23 @@ function showWord(wordData) {
       ${meaningsHTML}
     </div>
   `;
+
+  // Hook up the play button
+  const playBtn = document.getElementById("playBtn");
+  playBtn.addEventListener("click", function () {
+    if (audioSrc) {
+      audioPlayer.src = audioSrc;
+      audioPlayer.play();
+    } else {
+      alert("No audio available for this word.");
+    }
+  });
+ 
+  // Hook up the save button
+  const saveBtn = document.getElementById("saveBtn");
+  saveBtn.addEventListener("click", function () {
+    toggleSaveWord(wordData.word);
+    saveBtn.classList.toggle("saved");
+    saveBtn.textContent = saveBtn.classList.contains("saved") ? "★ Saved" : "☆ Save Word";
+  });
+}
