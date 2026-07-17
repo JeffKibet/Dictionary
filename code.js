@@ -72,3 +72,52 @@ function showWord(wordData) {
     }
   }
 } 
+
+// Build the HTML for each meaning (part of speech + definitions)
+  let meaningsHTML = "";
+ 
+  wordData.meanings.forEach(function (meaning) {
+    let defsHTML = "<ol class='definition-list'>";
+ 
+    // only show the first 3 definitions so the page isn't too long
+    const defsToShow = meaning.definitions.slice(0, 3);
+ 
+    defsToShow.forEach(function (def) {
+      defsHTML += `<li class="definition-item">${def.definition}`;
+      if (def.example) {
+        defsHTML += `<p class="example-text">"${def.example}"</p>`;
+      }
+      defsHTML += `</li>`;
+    });
+ 
+    defsHTML += "</ol>";
+ 
+    let synonymsHTML = "";
+    if (meaning.synonyms && meaning.synonyms.length > 0) {
+      const firstFewSynonyms = meaning.synonyms.slice(0, 5).join(", ");
+      synonymsHTML = `<p class="synonym-text"><strong>Synonyms:</strong> ${firstFewSynonyms}</p>`;
+    }
+ 
+    meaningsHTML += `
+      <p class="part-of-speech">${meaning.partOfSpeech}</p>
+      ${defsHTML}
+      ${synonymsHTML}
+    `;
+  });
+ 
+  const alreadySaved = isWordSaved(wordData.word);
+ 
+  // Put it all together into one word card
+  resultsDiv.innerHTML = `
+    <div class="word-card">
+      <h2 class="word-title">
+        ${wordData.word}
+        ${phonetic ? `<span class="phonetic">${phonetic}</span>` : ""}
+      </h2>
+      <button class="play-btn" id="playBtn">🔊 Play</button>
+      <button class="save-btn ${alreadySaved ? "saved" : ""}" id="saveBtn">
+        ${alreadySaved ? "★ Saved" : "☆ Save Word"}
+      </button>
+      ${meaningsHTML}
+    </div>
+  `;
