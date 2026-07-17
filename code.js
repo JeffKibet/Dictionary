@@ -54,3 +54,21 @@ async function searchWord(word) {
     `;
   }
 }
+
+// ===== SHOW THE WORD ON THE PAGE =====
+function showWord(wordData) {
+  // Try to find a phonetic spelling and an audio clip
+  let phonetic = wordData.phonetic || "";
+  let audioSrc = "";
+ 
+  if (wordData.phonetics && wordData.phonetics.length > 0) {
+    for (let i = 0; i < wordData.phonetics.length; i++) {
+      if (!phonetic && wordData.phonetics[i].text) {
+        phonetic = wordData.phonetics[i].text;
+      }
+      if (!audioSrc && wordData.phonetics[i].audio) {
+        audioSrc = wordData.phonetics[i].audio;
+      }
+    }
+  }
+} 
