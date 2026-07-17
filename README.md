@@ -60,10 +60,10 @@ That's it! No `npm install`, no server required.
 1. Type a word into the search box (e.g. "happy", "ephemeral", "run").
 2. Click **Search** (or press Enter).
 3. Read the definitions, part of speech, examples, and synonyms.
-4. Click **🔊 Play** to hear it pronounced (if audio is available for that word).
-5. Click **☆ Save Word** to add it to your saved list — it turns into **★ Saved**.
-6. Scroll down to **⭐ Saved Words** and click any saved word to look it up again instantly.
-7. Click **🌙 Dark Mode** in the top corner to switch themes.
+4. Click  **Play** to hear it pronounced (if audio is available for that word).
+5. Click **Save Word** to add it to your saved list — it turns into **★ Saved**.
+6. Scroll down to **Saved Words** and click any saved word to look it up again instantly.
+7. Click **Dark Mode** in the top corner to switch themes.
 
 ---
 
