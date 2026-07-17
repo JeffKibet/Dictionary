@@ -140,4 +140,69 @@ function showWord(wordData) {
     saveBtn.classList.toggle("saved");
     saveBtn.textContent = saveBtn.classList.contains("saved") ? "★ Saved" : "☆ Save Word";
   });
+
+  // ===== SAVED WORDS (using localStorage) =====
+ 
+function getSavedWords() {
+  const stored = localStorage.getItem("savedWords");
+  return stored ? JSON.parse(stored) : [];
 }
+ 
+function isWordSaved(word) {
+  const saved = getSavedWords();
+  return saved.includes(word.toLowerCase());
+}
+ 
+function toggleSaveWord(word) {
+  let saved = getSavedWords();
+  word = word.toLowerCase();
+ 
+  if (saved.includes(word)) {
+    saved = saved.filter(function (w) {
+      return w !== word;
+    });
+  } else {
+    saved.push(word);
+  }
+ 
+  localStorage.setItem("savedWords", JSON.stringify(saved));
+  renderSavedList();
+}
+ 
+function renderSavedList() {
+  const saved = getSavedWords();
+  savedList.innerHTML = "";
+ 
+  saved.forEach(function (word) {
+    const li = document.createElement("li");
+    li.innerHTML = `<button>${word}</button>`;
+    li.querySelector("button").addEventListener("click", function () {
+      searchInput.value = word;
+      searchWord(word);
+    });
+    savedList.appendChild(li);
+  });
+}
+ 
+// ===== DARK MODE =====
+ 
+darkModeBtn.addEventListener("click", function () {
+  document.body.classList.toggle("dark-mode");
+ 
+  if (document.body.classList.contains("dark-mode")) {
+    darkModeBtn.textContent = "☀️ Light Mode";
+    localStorage.setItem("darkMode", "on");
+  } else {
+    darkModeBtn.textContent = "🌙 Dark Mode";
+    localStorage.setItem("darkMode", "off");
+  }
+});
+ 
+// Keep dark mode setting after the page reloads
+if (localStorage.getItem("darkMode") === "on") {
+  document.body.classList.add("dark-mode");
+  darkModeBtn.textContent = "☀️ Light Mode";
+}
+ 
+// Show any saved words when the page first loads
+renderSavedList();
