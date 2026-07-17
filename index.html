@@ -23,6 +23,22 @@
       </button>
     </header>
 
+    <form id="searchForm" class="search" autocomplete="off">
+      <label for="wordInput" class="visually-hidden">Look up a word</label>
+      <input
+        id="wordInput"
+        name="word"
+        type="text"
+        class="search__input"
+        placeholder="Look up a word…"
+        aria-describedby="searchHint"
+        required
+      />
+      <button type="submit" class="search__button">
+        <span>Define</span>
+      </button>
+    </form>
+
     <script src="./code.js"></script>
 </body>
 </html>
