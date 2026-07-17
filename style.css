@@ -98,3 +98,10 @@ body.dark-mode .subtitle {
 #searchBtn:hover {
   background: #c14f88;
 }
+
+/* ===== Results area ===== */
+.hint-text {
+  text-align: center;
+  color: gray;
+  padding: 20px;
+}
