@@ -93,7 +93,7 @@ If a word isn't found, the API returns a `404`, which the app catches and shows 
 
 ---
 
-## 🔮 Possible Future Improvements
+## Possible Future Improvements
 
 - Add a loading spinner instead of just text while waiting for the API
 - Show word history (not just saved words)
@@ -102,6 +102,6 @@ If a word isn't found, the API returns a `404`, which the app catches and shows 
 
 ---
 
-## 👤 Author
+## Author
 
 Built by Jeff Kibet.
