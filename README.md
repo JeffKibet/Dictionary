@@ -21,9 +21,9 @@ This project was built as a summative lab for the Moringa School Software Engine
 
 ## Built With
 
-- **HTML5** — page structure
-- **CSS3** — styling, layout, and the dark mode theme
-- **Vanilla JavaScript (ES6+)** — no frameworks, no libraries
+- **HTML** — page structure
+- **CSS** — styling, layout, and the dark mode theme
+- **JavaScript** — no frameworks, no libraries
 - **[Free Dictionary API](https://dictionaryapi.dev/)** — the public API that powers the word lookups
 - **localStorage** — saves your favorite words and dark mode preference in the browser
 
@@ -52,10 +52,9 @@ No installation or build tools needed — it's a plain HTML/CSS/JS project.
 2. Open the project folder.
 3. Double-click `index.html`, or right-click it and choose **Open with → your browser**.
 
-That's it! No `npm install`, no server required.
 
 
-## 🧭 How to Use It
+## How to Use It
 
 1. Type a word into the search box (e.g. "happy", "ephemeral", "run").
 2. Click **Search** (or press Enter).
@@ -84,7 +83,7 @@ If a word isn't found, the API returns a `404`, which the app catches and shows 
 
 ---
 
-## 🧠 What I Learned Building This
+## What I Learned Building This
 
 - How to use `fetch()` and `async/await` to talk to a real public API
 - How to handle different response outcomes (success, not found, server error, network error) instead of just assuming things work
